@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ML6NEBM6NW"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'G-ML6NEBM6NW');
+        </script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Get perfect Material Design color palettes from any hex color.">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Material Design Palette Generator">
+        <meta property="og:description" content="Get perfect Material Design color palettes from any hex color.">
+        <meta property="og:image" content="https://materialpalettes.com/images/share.jpg">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Material Design Palette Generator">
+        <meta name="twitter:description" content="Get perfect Material Design color palettes from any hex color.">
+        <meta name="twitter:image" content="https://materialpalettes.com/images/share.jpg">
+        <link rel="icon" href="./favicon.ico" sizes="32x32">
+        <link rel="icon" href="./icon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+        <link rel="manifest" href="./manifest.webmanifest">
+        <link rel="canonical" href="https://materialpalettes.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700%7CMaterial+Icons%7CRoboto+Mono">
+        <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="./css/overrides.css">
+        <link rel="stylesheet" href="./css/carbon.css">
+        <title>Material Design Palette Generator</title>
+    </head>
+
+    <body>
+
+        <dialog id="exportModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Export palette</h2>
+                    <button class="close" type="reset"><i class="material-icons">highlight_off</i></button>
+                </div>
+                <div class="modal-control">
+                    <label for="export-type">Type:</label>
+                    <select name="type" id="export-type" onchange="ExportColor()">
+                        <option value="json" selected>JSON</option>
+                        <option value="css">CSS</option>
+                    </select>
+                </div>
+                <div class="modal-text">
+                    <textarea name="exportedPalettes" onclick="this.select()" readonly id="jsonText"></textarea>
+                </div>
+            </div>
+        </dialog>
+
+
+        <div class="palettes" id="root-container"></div>
+
+
+        <script src="./js/main.js" defer></script>
+        <script src="./js/export.js" defer></script>
+        <script>
+            // Show a new Carbon ad when certain elements are clicked
+            document.addEventListener('click', function (event) {
+                if (event.target.matches('.utility-panel__ripple, .exportButton')) {
+                    // If the ad hasn't loaded yet, don't refresh it while it's still loading, or it will return two (or more) ads
+                    if (!document.getElementById('carbonads')) return;
+                    // If the script hasn't loaded, don't try calling it
+                    if (typeof _carbonads !== 'undefined') _carbonads.refresh();
+                }
+            });
+        </script>
+    </body>
+
+</html>
