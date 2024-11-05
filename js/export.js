@@ -135,6 +135,11 @@ function ExportColor() {
         });
     } else {
         colorPalettes.forEach((palette, paletteIndex) => {
+            const children = [...palette.children];
+            const textContent = children.filter(e => {
+                const classes = [...e.classList];
+                return classes.filter(f => f.includes('selected')).length > 0;
+            })[0]?.textContent.trim().match(/#([0-9a-fA-F]{6})/).at(1);
             if (paletteIndex === 0) {
                 let labelIndex = 0;
                 const filteredColors = colors.filter(
